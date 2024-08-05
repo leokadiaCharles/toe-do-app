@@ -3,7 +3,7 @@
 1 repository:
 '''bash
  https://github.com/leokadiaCharles/toe-do-app.git
- 
+
  2 install dependencies:
  composer install
 
@@ -33,7 +33,8 @@
 
   ## user interface
 
-  ![UI SCREENSHOT] (./public/photo)
+  ![UI Screenshot](./public/photo.png)
+
 
 
   
