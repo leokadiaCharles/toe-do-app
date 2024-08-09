@@ -21,10 +21,14 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
+    // `update function
     public function update(Request $request, Task $task)
     {
         if ($request->has('title')) {
             // This update is coming from the modal form
+
+           
+
             $request->validate(['title' => 'required|string|max:255']);
     
             $task->update([
@@ -38,6 +42,8 @@ class TaskController extends Controller
     
         return redirect()->route('tasks.index');
     }
+
+    // `delete `funcion
 
     public function destroy(Task $task)
     {

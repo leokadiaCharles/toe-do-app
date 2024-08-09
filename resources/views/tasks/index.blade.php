@@ -17,7 +17,7 @@
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Add</button>
                 </div>
-            </div>
+            </div> 
         </form>
 
         <ul class="list-group mb-4">
@@ -33,18 +33,18 @@
                     </form>
                     <div>
                         <!-- Edit Button -->
-                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal-{{ $task->id }}">Edit</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editTaskModal">Edit</button>
 
                         <!-- Delete Button -->
-                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;" onsubmit="return confirm (  'Do you want to delete task?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button class="btn btn-danger btn-sm" > Delete</button>
                         </form>
                     </div>
 
                     <!-- Edit Task Modal -->
-                    <div class="modal fade" id="editTaskModal-{{ $task->id }}" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel-{{ $task->id }}" aria-hidden="true">
+                    <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel-{{ $task->id }}" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -81,7 +81,7 @@
             @foreach ($tasks->where('completed', true) as $task)
                 <li class="list-group-item d-flex justify-content-between align-items-center completed">
                     <span>{{ $task->title }}</span>
-                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
+                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;" onsubmit="return confirm ('do you want to delete complete task?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm">Delete</button>
@@ -101,6 +101,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
 
