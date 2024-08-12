@@ -9,7 +9,10 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::orderBy('completed')->get();
+         $tasks = Task::orderBy('completed')->get();
+
+        // $tasks = Task::where('completed', '1')->get();
+
         return view('tasks.index', compact('tasks'));
         
     }
@@ -26,8 +29,6 @@ class TaskController extends Controller
     {
         if ($request->has('title')) {
             // This update is coming from the modal form
-
-           
 
             $request->validate(['title' => 'required|string|max:255']);
     

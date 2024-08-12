@@ -27,7 +27,7 @@
                         @csrf
                         @method('PUT')
                         <div class="form-check">
-                            <input type="checkbox" name="completed" class="form-check-input" id="task-{{ $task->id }}" {{ $task->completed ? 'checked' : '' }} onchange="this.form.submit()">
+                            <input type="checkbox" name="completed" class="form-check-input" id="task-{{ $task->id }}" {{ $task->completed == 1 ? 'checked' : '' }} onchange="this.form.submit()">
                             <label class="form-check-label" for="task-{{ $task->id }}">{{ $task->title }}</label>
                         </div>
                     </form>
@@ -98,7 +98,8 @@
     </style>
 
     <!-- Bootstrap JS and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
